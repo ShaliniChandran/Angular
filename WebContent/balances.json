@@ -1,0 +1,214 @@
+{
+"summary" : {
+	"custodian" : "FID",
+	"asOfDate" : "15-Apr-2015",
+  "bricklets" : {
+      "Account Value" : {
+       "empty":false,
+       "id" : "Account Value",
+       "type" : "main",
+       "postTableInfo" :[
+       ],
+       "subBrickletIds":[
+       ],
+       "reTableInfo";[
+       ],
+    "balanceRows" : [
+    {
+    "empty" :false,
+    "negative":true,
+    "positive":false,
+    "closingBalance":"-$4,178,399.70",
+    "dollarChange" : "$0.00",
+    "positiveChange" : "0.00%",
+    "recentBakance": "-$4,178,399.70",
+    "tooltip" :"This is the tota value",
+    "displayAs":"balanceTopTotal",
+    "balance":{
+    "empty":false,
+    "closingBalance":-4178399.7,
+    "dollarChange":0.0,
+    "creditorDebitInd":-1,
+    "percentChange":0.000,
+    "recentBalance":-4178399.7
+    },
+    
+    "closingBalanceUnmodified":"-4178319.70",
+    "closingBalanceValue":{
+    "empty":false,
+    "zero":false,
+    "negative":true,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":-4173899.70,
+    "valueAsString":-4178399.70
+    },
+    "dollarChangeBalanceValue":{
+    "empty":false,
+    "zero":true,
+    "negative":false,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":0.00,
+    "valueAsString":"0.00"
+    },
+    "dollarChangeUnmodified":"0.00",
+    "percentChnageBalanceValue":{
+    "empty":false,
+    "zero":true,
+    "negative":false,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":0.00,
+    "valueAsString":"0.00"
+    },
+    "percentChangeUnmodified":"0.00",
+    "recentBalanceUnmodified":"-4178399.70",
+    "recentBalanceValue":{
+    "empty":false,
+    "zero":false,
+    "negative":true,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":-4173899.70,
+    "valueAsString":-4178399.70
+    },
+    "label":"Total Account Value"
+    },
+    {
+    "empty" :false,
+    "negative":true,
+    "positive":false,
+    "closingBalance":"-$4,178,399.70",
+    "dollarChange" : "$0.00",
+    "positiveChange" : "0.00%",
+    "recentBakance": "-$4,178,399.70",
+    "tooltip" :"This is the tota value",
+    "displayAs":"balanceTopTotal",
+    "balance":{
+    "empty":false,
+    "closingBalance":-4178399.7,
+    "dollarChange":0.0,
+    "creditorDebitInd":-1,
+    "percentChange":0.000,
+    "recentBalance":-4178399.7
+    },
+    
+    "closingBalanceUnmodified":"-4178319.70",
+    "closingBalanceValue":{
+    "empty":false,
+    "zero":false,
+    "negative":true,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":-4173899.70,
+    "valueAsString":-4178399.70
+    },
+    "dollarChangeBalanceValue":{
+    "empty":false,
+    "zero":true,
+    "negative":false,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":0.00,
+    "valueAsString":"0.00"
+    },
+    "dollarChangeUnmodified":"0.00",
+    "percentChnageBalanceValue":{
+    "empty":false,
+    "zero":true,
+    "negative":false,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":0.00,
+    "valueAsString":"0.00"
+    },
+    "percentChangeUnmodified":"0.00",
+    "recentBalanceUnmodified":"-4178399.70",
+    "recentBalanceValue":{
+    "empty":false,
+    "zero":false,
+    "negative":true,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":-4173899.70,
+    "valueAsString":-4178399.70
+    },
+    "label":"Securities Market Value"
+    }
+    ],
+    
+    "typeUnmodified" : "MAIN",
+    "label":"Total Account Value"
+    },
+    
+    "AvailableToTrade":{
+    {
+    "empty" :false,
+    "negative":true,
+    "positive":false,
+    "closingBalance":"-$4,178,399.70",
+    "dollarChange" : "$0.00",
+    "positiveChange" : "0.00%",
+    "recentBakance": "-$4,178,399.70",
+    "tooltip" :"This is the tota value",
+    "displayAs":"balanceTopTotal",
+    "balance":{
+    "empty":false,
+    "closingBalance":-4178399.7,
+    "dollarChange":0.0,
+    "creditorDebitInd":-1,
+    "percentChange":0.000,
+    "recentBalance":-4178399.7
+    },
+    
+    "closingBalanceUnmodified":"-4178319.70",
+    "closingBalanceValue":{
+    "empty":false,
+    "zero":false,
+    "negative":true,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":-4173899.70,
+    "valueAsString":-4178399.70
+    },
+    "dollarChangeBalanceValue":{
+    "empty":false,
+    "zero":true,
+    "negative":false,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":0.00,
+    "valueAsString":"0.00"
+    },
+    "dollarChangeUnmodified":"0.00",
+    "percentChnageBalanceValue":{
+    "empty":false,
+    "zero":true,
+    "negative":false,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":0.00,
+    "valueAsString":"0.00"
+    },
+    "percentChangeUnmodified":"0.00",
+    "recentBalanceUnmodified":"-4178399.70",
+    "recentBalanceValue":{
+    "empty":false,
+    "zero":false,
+    "negative":true,
+    "positive":false,
+    "miscProblemValue":false,
+    "valueAsNumber":-4173899.70,
+    "valueAsString":-4178399.70
+    },
+    "label":"Total Account Value"
+    }
+    ],
+    
+    
+    
+    
+    
+    
+    

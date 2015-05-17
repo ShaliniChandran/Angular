@@ -1,0 +1,125 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/2.1.08/jquery.masonry.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/mystlye.css">
+
+<div ng-controller="MainCtrl">
+    <input type="text" ng-model="nameFilter" />
+    <a href="#" ng-click="order = 'id'">Order by id</a>
+    <a href="#" ng-click="order = 'name'">Order by name</a>
+    <a href="#" ng-click="order = 'age'">Order by age</a>
+
+    <ul class="grid" masonry="true">
+        <li ng-repeat="item in items | filter: { name: nameFilter } | orderBy: order">
+            <span>{{item.name}}</span>
+            <br /> <span>Age: {{item.age}}</span>
+            <br /> <span>Company: {{item.company}}</span>
+        </li>
+    </ul>
+</div>
+<script>
+angular.module('app', [])
+.directive("masonry", function () {
+    var NGREPEAT_SOURCE_RE = '<!-- ngRepeat: ((.*) in ((.*?)( track by (.*))?)) -->';
+    return {
+        compile: function(element, attrs) {
+            // auto add animation to brick element
+            var animation = attrs.ngAnimate || "'masonry'";
+            var $brick = element.children();
+            $brick.attr("ng-animate", animation);
+            
+            // generate item selector (exclude leaving items)
+            var type = $brick.prop('tagName');
+            var itemSelector = type+":not([class$='-leave-active'])";
+            
+            return function (scope, element, attrs) {
+                var options = angular.extend({
+                    itemSelector: itemSelector
+                }, scope.$eval(attrs.masonry));
+                
+                // try to infer model from ngRepeat
+                if (!options.model) { 
+                    var ngRepeatMatch = element.html().match(NGREPEAT_SOURCE_RE);
+                    if (ngRepeatMatch) {
+                        options.model = ngRepeatMatch[4];
+                    }
+                }
+                
+                // initial animation
+                element.addClass('masonry');
+                
+                // Wait inside directives to render
+                setTimeout(function () {
+                    element.masonry(options);
+                    
+                    element.on("$destroy", function () {
+                        element.masonry('destroy')
+                    });
+                    
+                    if (options.model) {
+                        scope.$apply(function() {
+                            scope.$watchCollection(options.model, function (_new, _old) {
+                                if(_new == _old) return;
+                                
+                                // Wait inside directives to render
+                                setTimeout(function () {
+                                    element.masonry("reload");
+                                });
+                            });
+                        });
+                    }
+                });
+            };
+        }
+    };
+})
+.controller('MainCtrl', function ($scope, $http) {
+    $scope.items = [
+    {
+        "id": 0,
+        "picture": "http://placehold.it/32x32",
+        "age": 31,
+        "name": "Mathews Goff"
+    },
+    {
+        "id": 1,
+        "picture": "http://placehold.it/32x32",
+        "age": 36,
+        "name": "Collins Alston"
+    },
+    {
+        "id": 2,
+        "picture": "http://placehold.it/32x32",
+        "age": 27,
+        "name": "Jasmine Rollins"
+    },
+    {
+        "id": 3,
+        "picture": "http://placehold.it/32x32",
+        "age": 32,
+        "name": "Julie Jefferson"
+    },
+    {
+        "id": 4,
+        "picture": "http://placehold.it/32x32",
+        "age": 23,
+        "name": "Wilder King"
+    },
+    {
+        "id": 5,
+        "picture": "http://placehold.it/32x32",
+        "age": 23,
+        "name": "Stanley Moore"
+    },
+    {
+        "id": 6,
+        "picture": "http://placehold.it/32x32",
+        "age": 36,
+        "name": "Reynolds Bishop"
+    }
+  
+   
+];
+});
+
+angular.bootstrap(document.body, ['app']);</script>

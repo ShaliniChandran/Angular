@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Angular JS Routes</title>
+<link href="http://netdna.bootstrapcdn.com/bootswatch/2.3.2/united/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                margin-top: 1em;
+            }
+
+            .masonry-brick {
+                margin: 1em;
+                display: none;
+            }
+
+            .masonry-brick.loaded {
+                display: block;
+            }
+        </style>
+<script src="http://passy.github.io/angular-masonry/bower_components/jquery/dist/jquery.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/jquery-bridget/jquery.bridget.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/get-style-property/get-style-property.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/get-size/get-size.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/eventEmitter/EventEmitter.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/eventie/eventie.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/doc-ready/doc-ready.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/matches-selector/matches-selector.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/outlayer/item.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/outlayer/outlayer.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/masonry/masonry.js"></script>
+<script src="http://passy.github.io/angular-masonry/bower_components/imagesloaded/imagesloaded.js"></script>
+
+<script src="./js/angular.js">
+</script>
+<script src="./js/angular-route.js"></script>
+
+<script src="./js/angular-masonry.js"></script>
+</head>
+<body ng-app="sampleApp">
+  <div ng-view></div>
+<script>
+var module=angular.module('sampleApp',['ngRoute','wu.masonry']);
+module.config(['$routeProvider',function($routeProvider){
+             $routeProvider.when('/route',{
+            	 templateUrl:'./main.html',
+            	 controller:'MainController'
+             }).when('/route2/:param',{
+            	 templateUrl:'./showDetails.html',
+            	 controller:'ShowDetailsController'
+             }).when('/route3',{
+            	 templateUrl:'./addStudent.html',
+            	 controller:'AddStudentController'
+             }).otherwise({
+            	 redirectTo:'/route'
+             });
+}]);
+module.controller('MainController',function($scope,$http){
+	$http.get("http://localhost:8080/StudentDetails/stud.html")
+	.success(function(response){
+		$scope.names=response;
+	});
+});
+
+
+module.controller("ShowDetailsController",function($scope,$routeParams){
+	$scope.param=$routeParams.param;
+});
+module.controller("AddStudentController",function($scope){
+	$scope.addStudent=function(){
+		$scope.names.push({
+			firstName:$scope.newStud.firstName,
+			lastName:$scope.newStud.lastName,
+			rollNo:$scope.newStud.rollNo
+		});
+	};
+});
+
+module.controller('DemoCtrl', function ($scope) {
+            function genBrick() {
+                var height = ~~(Math.random() * 500) + 100;
+                var id = ~~(Math.random() * 10000);
+                return {
+                    src: 'http://lorempixel.com/g/280/' + height + '/?' + id
+                };
+            };
+
+            $scope.bricks = [
+                genBrick(),
+                genBrick(),
+                genBrick(),
+                genBrick(),
+                genBrick()
+            ];
+
+            $scope.add = function add() {
+                $scope.bricks.push(genBrick());
+            };
+
+            $scope.remove = function remove() {
+                $scope.bricks.splice(
+                    ~~(Math.random() * $scope.bricks.length),
+                    1
+                )
+            };
+        });
+
+</script>
+</body>
+</html>

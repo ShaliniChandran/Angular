@@ -1,0 +1,39 @@
+
+<html>
+<head>
+<title>Main Page</title>
+</head>
+<body>
+	<div class="row" ng-controller="DemoCtrl">
+		<div class="span12">
+			<h2>In Action</h2>
+			<div class="btn-group">
+				<button class="btn btn-primary" ng-click="add()">Add</button>
+				<button class="btn btn-danger" ng-click="remove()">Remove</button>
+			</div>
+			<div masonry>
+			
+				<div class="masonry-brick" ng-repeat="brick in bricks">
+					<img ng-src="{{ brick.src }}" alt="A masonry brick">
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div>
+		<table>
+			<tr>
+				<th>StudentName</th>
+				<th>Details</th>
+			</tr>
+			<tr ng-repeat="x in names">
+				<td>{{x.firstName + "" +x.lastName}}</td>
+				<td><a href="#route2/1">showDetails</a> <br /></td>
+			</t>
+		</table>
+	</div>
+	<div>
+		<a href="#route3">AddStudent</a>
+	</div>
+</body>
+</html>
